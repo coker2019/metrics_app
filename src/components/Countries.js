@@ -6,18 +6,20 @@ const Countries = () => {
   const countriesArr = useSelector((state) => state.countries.countriesData);
   return (
     <div>
-      <h2>Europe</h2>
-      <p>All Countries</p>
       <ul>
         {
-          countriesArr.map((country) => (
+          countriesArr.map((country, index) => (
             <Country
               key={country.id}
+              index={index}
               name={country.name}
-              flag={country.flag}
-              region={country.region}
+              flag={country.image}
+              region={country.subregion}
               population={country.population}
               id={country.id}
+              languages={country.languages}
+              capital={country.capital}
+              timezone={country.timezone}
             />
           ))
         }
