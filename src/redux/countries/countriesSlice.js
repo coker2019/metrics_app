@@ -5,8 +5,8 @@ const initialState = {
   countriesData: [],
 };
 
-const DISPLAYCOUNTRIES = 'population-metrics-app/redux/countries/countriesSlice/DISPLAYCOUNTRIES';
-const DISPLAYCOUNTRY = 'population-metrics-app/redux/countries/countriesSlice/DISPLAYCOUNTRY';
+const DISPLAYCOUNTRIES = 'metrics_app/redux/countries/countriesSlice/DISPLAYCOUNTRIES';
+const DISPLAYCOUNTRY = 'metrics_app/redux/countries/countriesSlice/DISPLAYCOUNTRY';
 
 const URL = 'https://restcountries.com/v3.1/region/europe';
 const countryURL = 'https://restcountries.com/v3.1/name';
