@@ -18,7 +18,7 @@
 - [📝 License](#license)
 
 # 📖 [ React capstone project - Metrics webapp] <a name="about-project"></a>
- This project is React and Redux single page application that contains basic information about European countries. This pieces of information include: population; country's capital; timezone, and others.
+ This project is React and Redux single page application that contains basic information about European countries. This pieces of information include: population; country's capital; timezone, and other details.
  
 
 
