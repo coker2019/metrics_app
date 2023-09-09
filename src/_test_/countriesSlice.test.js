@@ -1,7 +1,4 @@
-import countriesReducer, { fetchCountries, fetchCountry, initialState  } from '../redux/countries/countriesSlice';
-
-// Import your reducer and initialState from the slice file
-// import { initialState } from '../redux/countries/countriesSlice';
+import countriesReducer, { fetchCountries, fetchCountry, initialState } from '../redux/countries/countriesSlice';
 
 describe('countriesSlice', () => {
   it('should handle fetchCountries.fulfilled', () => {
