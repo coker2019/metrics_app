@@ -1,9 +1,8 @@
 // eslint-disable-next-line react-hooks/exhaustive-deps
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchCountries,
-  fetchCountry,
 } from '../redux/countries/countriesSlice';
 import Countries from './Countries';
 import europe from '../images/europe.png';
@@ -11,20 +10,13 @@ import europe from '../images/europe.png';
 const Home = () => {
   const [countryName, searchCountryName] = useState('');
   const dispatch = useDispatch();
+  const countriesArr = useSelector((state) => state.countries.countriesData);
+  // eslint-disable-next-line max-len
+  const filteredData = countriesArr.filter((country) => country.name.toLowerCase().includes(countryName.toLowerCase()));
 
   useEffect(() => {
     dispatch(fetchCountries());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (countryName !== '') {
-      setTimeout(() => {
-        dispatch(fetchCountry(countryName));
-      }, 1000);
-    } else {
-      dispatch(fetchCountries());
-    }
-  }, [countryName]);
 
   const handleClick = () => {
     window.location.reload();
@@ -55,7 +47,7 @@ const Home = () => {
 
       <section>
         <h3 className="country-section-title">See All Countries</h3>
-        <Countries />
+        <Countries countriesArr={filteredData} />
       </section>
     </main>
   );

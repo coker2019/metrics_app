@@ -1,13 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { PropTypes } from 'prop-types';
+
 import Country from './Country';
 
-const Countries = () => {
-  const countriesArr = useSelector((state) => state.countries.countriesData);
-  return (
-    <div>
-      <div className="grid-container">
-        {
+const Countries = ({ countriesArr }) => (
+  <div>
+    <div className="grid-container">
+      {
           countriesArr.map((country, index) => (
             <Country
               key={country.id}
@@ -23,9 +22,11 @@ const Countries = () => {
             />
           ))
         }
-      </div>
     </div>
-  );
-};
+  </div>
+);
 
+Countries.propTypes = {
+  countriesArr: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 export default Countries;
