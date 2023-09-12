@@ -10,8 +10,11 @@ const Home = () => {
   const [countryName, searchCountryName] = useState('');
   const dispatch = useDispatch();
   const countriesArr = useSelector((state) => state.countries.countriesData);
-  // eslint-disable-next-line max-len
-  const filteredData = countriesArr.filter((country) => country.name.toLowerCase().includes(countryName.toLowerCase()));
+
+  const filteredData = countriesArr.filter((country) => {
+    const countryName = country.name.toLowerCase();
+    return countryName.includes(countryName.toLowerCase());
+  });
 
   useEffect(() => {
     dispatch(fetchCountries());
