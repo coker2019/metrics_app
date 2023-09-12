@@ -1,29 +1,32 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { PropTypes } from 'prop-types';
+
 import Country from './Country';
 
-const Countries = () => {
-  const countriesArr = useSelector((state) => state.countries.countriesData);
-  return (
-    <div>
-      <h2>Europe</h2>
-      <p>All Countries</p>
-      <ul>
-        {
-          countriesArr.map((country) => (
+const Countries = ({ countriesArr }) => (
+  <div>
+    <div className="grid-container">
+      {
+          countriesArr.map((country, index) => (
             <Country
               key={country.id}
+              index={index}
               name={country.name}
-              flag={country.flag}
-              region={country.region}
+              flag={country.image}
+              region={country.subregion}
               population={country.population}
               id={country.id}
+              languages={country.languages}
+              capital={country.capital}
+              timezone={country.timezone}
             />
           ))
         }
-      </ul>
     </div>
-  );
-};
+  </div>
+);
 
+Countries.propTypes = {
+  countriesArr: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 export default Countries;
